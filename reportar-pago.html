@@ -22,14 +22,14 @@
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/fontello.css">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://jsuites.net/v4/jsuites.js"></script>
+<link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
   <!-- Js WoW
   <script src="js/wow.min.js"></script>
   <script> new WOW().init();</script>
   -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.0/semantic.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.0/semantic.min.js"></script>
+ 
 
 </head>
 
@@ -87,10 +87,12 @@
             <div class="col-md-7 text-center mx-auto">
               <h4 class="" style="font-size: 19px"><b>Nº Cédula:</b></h4>
               <div class="input-group mb-3 ">
-                <input type="number" class="form-control shadow-sm" placeholder="Cédula titular del servicio"
+                <input type="number" class="form-control shadow-sm" id="numeroid" placeholder="Cédula titular del servicio"
                   aria-label="Recipient's username" aria-describedby="button-addon2" required>
-                <button class="btn btn-lg btn-primary" type="submit" value="Canelar" id="btn_enviar_cont"
-                  id="button-addon2">Consultar</button>
+                <button class="   btn btn-lg btn-primary" type="submit" value="Canelar" id="btn_enviar_cont"
+                  id="button-addon2">Consultar <div class=" d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></div></button>
+                 
+                 
               </div>
             </div>
           </div>
@@ -100,14 +102,14 @@
             <div class="col-md-9">
               <h4 class="" style="font-size: 19px"><b>Cliente:</b></h4>
               <div class="col-12">
-                <p class="border border-2 py-2 px-2 rounded-2" id="nombre">YEPEZ ORMEÑO JORGE LEONARDO</p>
+                <p class="border border-2 py-2 px-2 rounded-2" id="nombre"> Cliente </p>
               </div>
             </div>
 
             <div class="col-md-3">
               <h4 class="" style="font-size: 19px"><b>Estado:</b></h4>
-              <div class="col-12 bg-success rounded-2 text-center fw-bold text-white">
-                <p class="border border-2 py-2 px-2 rounded-2"><span style="font-size: 18px" id="estado">ACTIVO</span></p>
+              <div class="estado col-12 bg-danger rounded-2 text-center fw-bold text-white">
+                <p class="border border-2 py-2 px-2 rounded-2"><span style="font-size: 18px" id="estado">DESCO</span></p>
               </div>
             </div>
           </div>
@@ -130,7 +132,7 @@
                     <h4 style="font-size: 19px" class="py-3"><b>Fact. Pendientes:</b></h4>
                   </div>
                   <div class="col-5 text-center">
-                    <p class="border border-2 rounded-2 py-2" style="font-size: 19px" id="cantidad">2</p>
+                    <p class="border border-2 rounded-2 py-2" style="font-size: 19px" id="cantidad">0</p>
                   </div>
                 </div>
 
@@ -139,7 +141,7 @@
                     <h4 style="font-size: 19px" class="py-3"><b>Total a Pagar:</b></h4>
                   </div>
                   <div class="col-5 text-center">
-                    <p class="border border-2 rounded-2 py-2" style="font-size: 19px" id="valors">$35.99</p>
+                    <p class="border border-2 rounded-2 py-2" style="font-size: 19px" id="valors">$00.00</p>
                   </div>
                 </div>
               </div>
@@ -225,6 +227,7 @@
       </div>
     </div>
   </div>
+
 
 
   <!--Footer-->
