@@ -13,14 +13,41 @@ const consulta = async () => {
   }
 }
 async function OCRAPI(parms) {
+  let body = {
+    "requests": [
+      {
+        "image": {
+          "source": {
+            "imageUri": parms //image URL
+          }
+        },
+        "features": [
+          {
+            "type": "TEXT_DETECTION",
+            "maxResults": 1
+          }
+        ]
+      }
+    ]
+  }
   try {
-    const { data } = await axios.post("https://ocr.asprise.com/api/v1/receipt", parms)
+
+    const { data } = await axios.post("https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBNia4WYQBvCuD_LbkihLTw_jj4ke6xmCY",
+      body
+    )
     return data
   } catch (error) {
     return error
   }
 }
-
+function getBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
 
 
 $("#btn_enviar_cont").click(function (e) {
@@ -51,17 +78,33 @@ imageUpload.onchange = function (e) {
   let text;
   if (input) {
     //process input
+    let img = new Image()
+    img.src = window.URL.createObjectURL(this.files[0])
+    var file = this.files[0];
+    var fr = new FileReader();
+    //fr.onload = createImage;   // onload fires after reading is complete
+    fr.readAsDataURL(file);
     console.log(input)
     let fordata = new FormData();
     fordata.append('file', this.files[0]);
     fordata.append('api_key', "TEST");
     fordata.append('recognizer', "auto");
     fordata.append('ref_no', "ocr_nodejs_123");
-    OCRAPI(fordata).then(ouput => {
+    console.log(img)
+    OCRAPI(fr).then(ouput => {
       console.log(ouput)
     }).catch(err => {
       console.log(err)
     })
+    /* getBase64(input).then(
+       data => {
+ 
+         
+ 
+         console.log(data)
+       }
+     );*/
+
     // text = imageUpload.value.replace("C: \\fakepath\\", "");
   } else {
     console.log(input)
