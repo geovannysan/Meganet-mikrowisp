@@ -1,5 +1,6 @@
 const consulta = async () => {
   try {
+    
     const { data } = await axios.post("https://private-anon-c7547c2e18-mikrowisp.apiary-mock.com/api/v1/GetClientsDetails",
       {
         "token": "NXJzUzNRNGljN0JOOWRpK252QXFzdz09",
@@ -9,7 +10,6 @@ const consulta = async () => {
     return data
   } catch (error) {
     return error
-
   }
 }
 async function OCRAPI(parms) {
@@ -31,14 +31,19 @@ async function OCRAPI(parms) {
     ]
   }
   try {
-
+    const { data } = await axios.post("https://ocr.asprise.com/api/v1/receipt", parms)
+/*
     const { data } = await axios.post("https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBNia4WYQBvCuD_LbkihLTw_jj4ke6xmCY",
       body
-    )
+    )*/
     return data
   } catch (error) {
     return error
   }
+}
+async function guardar(im){
+const datos = await axios.post("http://127.0.0.1:5501/guardar.php")
+
 }
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -91,7 +96,7 @@ imageUpload.onchange = function (e) {
     fordata.append('recognizer', "auto");
     fordata.append('ref_no', "ocr_nodejs_123");
     console.log(img)
-    OCRAPI(fr).then(ouput => {
+    OCRAPI(fordata).then(ouput => {
       console.log(ouput)
     }).catch(err => {
       console.log(err)
