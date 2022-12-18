@@ -31,6 +31,9 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.0/semantic.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.0/semantic.min.js"></script>
     <script src='https://unpkg.com/tesseract.js@4.0.1/dist/tesseract.min.js'></script>
+
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
 </head>
 
 <body style="font-family: 'Quicksand', sans-serif;" id="raiz">
@@ -90,7 +93,7 @@
                         <div class="col-md-7 text-center mx-auto">
                             <h4 class="" style="font-size: 19px"><b>Nº Cédula:</b></h4>
                             <div class="input-group mb-3 ">
-                                <input type="number" class="form-control shadow-sm"
+                                <input type="number" id="cedula" class="form-control shadow-sm"
                                     placeholder="Cédula titular del servicio" aria-label="Recipient's username"
                                     aria-describedby="button-addon2" required>
                                 <button class="btn btn-lg btn-primary" type="submit" value="Canelar"
@@ -317,12 +320,15 @@
 
     <!--Fin proyecto-->
     <!--Js
+        
+
   <script src="js/wow.min.js"></script>
   -->
     <script src="js/bootstrap.bundle.js"></script>
 
-    <script src="js/consultas-micro.js"></script>
-
+   
+<script src="js/consultas-micro.js"></script>
+<script src="js/guardarimagen.js"></script>
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (() => {

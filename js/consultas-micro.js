@@ -1,6 +1,4 @@
 
-/*
-
 const consultas = async (identificado) => {
   //0908851249
   try {
@@ -17,11 +15,11 @@ const consultas = async (identificado) => {
     return error
 
   }
-}*/
+}
 document.getElementById('btn_enviar_cont').addEventListener('click', function (e) {
   e.preventDefault()
-
-  let identificado = document.getElementById("numeroid").value
+  let identificado = document.getElementById("cedula").value
+  console.log(identificado)
   let lista = document.querySelector("div.estado")
   if (identificado.length != 10) {
     jSuites.notification({
@@ -34,7 +32,8 @@ document.getElementById('btn_enviar_cont').addEventListener('click', function (e
   }
   else
     this.setAttribute("disabled", true)
-  e.path[0].children[0].classList.toggle("d-none")
+  console.log(e.path[0].children)
+  //e.path[0].classList.toggle("d-none")
   consulta(identificado).then(ouput => {
     if (ouput.estado == 'exito') {
       this.removeAttribute("disabled");
@@ -52,7 +51,7 @@ document.getElementById('btn_enviar_cont').addEventListener('click', function (e
       document.getElementById("cantidad").innerHTML = infomacion.facturacion["facturas_nopagadas"];
       document.getElementById("valors").innerHTML = "$" + infomacion.facturacion["total_facturas"];
       this.removeAttribute("disabled");
-      e.path[0].children[0].classList.toggle("d-none")
+     // e.path[0].children[0].classList.toggle("d-none")
     }
     else {
       this.removeAttribute("disabled");
@@ -62,7 +61,7 @@ document.getElementById('btn_enviar_cont').addEventListener('click', function (e
         message: 'No hubo coincidencia',
       })
       this.removeAttribute("disabled");
-      e.path[0].children[0].classList.toggle("d-none")
+      //e.path[0].children[0].classList.toggle("d-none")
       document.getElementById("nombre").innerHTML = ".....";
       document.getElementById("estado").innerHTML = "DESCO";
       document.getElementById("cantidad").innerHTML = "0";
@@ -71,7 +70,7 @@ document.getElementById('btn_enviar_cont').addEventListener('click', function (e
     }
   }).catch(err => {
     this.removeAttribute("disabled");
-    e.path[0].children[0].classList.toggle("d-none")
+   // e.path[0].children[0].classList.toggle("d-none")
     console.log(err)
   })
 })
@@ -89,35 +88,7 @@ const consulta = async () => {
     return error
   }
 }
-async function OCRAPI(parms) {
-  let body = {
-    "requests": [
-      {
-        "image": {
-          "source": {
-            "imageUri": parms //image URL
-          }
-        },
-        "features": [
-          {
-            "type": "TEXT_DETECTION",
-            "maxResults": 1
-          }
-        ]
-      }
-    ]
-  }
-  try {
-    const { data } = await axios.post("https://ocr.asprise.com/api/v1/receipt", parms)
-/*
-    const { data } = await axios.post("https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBNia4WYQBvCuD_LbkihLTw_jj4ke6xmCY",
-      body
-    )*/
-    return data
-  } catch (error) {
-    return error
-  }
-}
+
 async function guardar(im){
 const datos = await axios.post("http://127.0.0.1:5501/guardar.php")
 
@@ -151,7 +122,7 @@ $("#btn_enviar_cont").click(function (e) {
     console.log(err)
   })
 })
-
+/*
 let imageUpload = document.getElementById("imageUpload");
 let uploadMsg = document.getElementById("uploadMsg");
 // display file name if file has been selected
@@ -185,7 +156,7 @@ imageUpload.onchange = function (e) {
  
          console.log(data)
        }
-     );*/
+     );*
 
     // text = imageUpload.value.replace("C: \\fakepath\\", "");
   } else {
@@ -194,5 +165,5 @@ imageUpload.onchange = function (e) {
   }
   //uploadMsg.innerHTML = text;
 };
-
+*/
 
