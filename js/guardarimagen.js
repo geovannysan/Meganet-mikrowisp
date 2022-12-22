@@ -41,13 +41,13 @@ function getNumbersInString(string) {
 }
 let imageUpload = document.getElementById("imageUpload");
 imageUpload.onchange = function () {
-    let input = this.files[0];
+    var input = this.files[0];
     console.log(this)
     if (input) {
-        let fordata = new FormData();
+        var fordata = new FormData();
         fordata.append('fileTest', this.files[0]);
         console.log(fordata)
-        let valores={
+        var valores={
             comprobante:"",
             monto:""
         }
@@ -75,46 +75,43 @@ imageUpload.onchange = function () {
             //console.log(salida.responses[0].fullTextAnnotation.text)
         }
         ).catch(erro => console.log(erro))*/
-     axios.post("js/guardar.php", fordata,
-          ).then(respuesta => respuesta.json())
-              .then(decodificado => {
-                  if(!decodificado.status) {
-                      jSuites.notification({
-                          error: 1,
-                          name: 'Hubo un error',
-                          message: decodificado.result,
-                      })
-                      console.log(decodificado);
-                  }
-                  if (decodificado.status){ 
-                      OCRAPI(decodificado.result).then(salida=>{
-                        let respues = salida.responses[0].fullTextAnnotation.text.split("\n")
-                        let nuevo = respues.map((e, i) => {
-                            if (e.includes("Comprobante")) {
-                                 document.getElementById("control").value=""+getNumbersInString(e)
-                                
-                                return valores[0] = getNumbersInString(e)
-                            }
-                            if (e.includes("$")){
-                                
-                                if ( parseFloat( e.split("$")[1].replace("$",""))>1) document.getElementById("monto").value = "$" + e.split("$")[1]
-                                return valores[1]= getNumbersInString(e.replace("$"," "))    
-                            }
-                        }).filter(function (value) {
-                            return value != undefined;
-                        })
-            
-                        console.log(respues, nuevo)
-                        //console.log(salida.responses[0].fullTextAnnotation.text)
-                        }
-                          ).catch(erro=>console.log(erro))
-                  } 
-                  console.log(decodificado);
-              }).catch(error => console.log(error));
-  
-    } else {
-        console.log(input)
-        //s  text = "“Please select as file”";
-    }
-    //uploadMsg.innerHTML = text;
+        axios.post("js/guardar.php", fordata).then(respuesta => respuesta)
+        .then(decodificado => {
+            if(!decodificado.data.status) {
+                jSuites.notification({
+                    error: 1,
+                    name: 'Hubo un error',
+                    message: decodificado.data.result,
+                })
+                console.log(decodificado.data);
+            }
+            if (decodificado.data.status){
+                OCRAPI(decodificado.data.result).then(salida=>
+                   {
+                      let respues = salida.responses[0].fullTextAnnotation.text.split("\n")
+        let nuevo = respues.map((e, i) => {
+            if (e.includes("Comprobante")) {
+                 document.getElementById("control").value=""+getNumbersInString(e)
+                return valores[0] = getNumbersInString(e)
+            }
+            if (e.includes("$")){
+                if ( parseFloat( e.split("$")[1].replace("$",""))>1) document.getElementById("monto").value = "$" + e.split("$")[1]
+                return valores[1]= getNumbersInString(e.replace("$"," "))    
+            }
+        }).filter(function (value) {
+            return value != undefined;
+        })
+
+        console.log(respues, nuevo)
+                   }
+                    ).catch(erro=>console.log(erro))
+            }
+            console.log(decodificado.data);
+        }).catch(error => console.log(error));
+
+} else {
+    console.log(input)
+    //s  text = "“Please select as file”";
+}
+//uploadMsg.innerHTML = text;
 };
