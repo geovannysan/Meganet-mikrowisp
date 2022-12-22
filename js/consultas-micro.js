@@ -5,7 +5,7 @@ const consulta = async (identificado) => {
   //0918381419  
   //1204795080
   try {
-    const { data } = await axios.post("http://177.234.197.134/api/v1/GetClientsDetails",
+    const { data } = await axios.post("https://177.234.197.134/api/v1/GetClientsDetails",
       {
         "token": "TTZqNnlucVpuZmJUUXRzcDVSci9QQT09",
         "cedula": "" + identificado
