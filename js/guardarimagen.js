@@ -40,9 +40,9 @@ function getNumbersInString(string) {
     if(parseFloat(numbers.join(""))>1)  return numbers.join("");
 }
 let imageUpload = document.getElementById("imageUpload");
-let uploadMsg = document.getElementById("uploadMsg");
 imageUpload.onchange = function () {
     let input = this.files[0];
+    console.log(this)
     if (input) {
         let fordata = new FormData();
         fordata.append('fileTest', this.files[0]);
@@ -54,7 +54,7 @@ imageUpload.onchange = function () {
         //https://microtikcd.000webhostapp.com/files/20221218152550.jpeg
         //https://microtikcd.000webhostapp.com/files/transfer.jpeg
         //https://microtikcd.000webhostapp.com/files/pago.jpeg
-        OCRAPI("https://microtikcd.000webhostapp.com/files/trsfdf.jpeg").then(salida => {
+        OCRAPI("https://microtikcd.000webhostapp.com/files/20221222133158.jpeg").then(salida => {
             let respues = salida.responses[0].fullTextAnnotation.text.split("\n")
             let nuevo = respues.map((e, i) => {
                 if (e.includes("Comprobante")) {
