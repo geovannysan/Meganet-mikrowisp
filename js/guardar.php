@@ -9,7 +9,7 @@ $url_temp = $_FILES["fileTest"]["tmp_name"]; //Ruta temporal a donde se carga el
 $url_insert = dirname(__FILE__) . "./../files"; 
 
 $url_target = str_replace('\\', '/', $url_insert) . '/' .$hoy.".".$file_type;
-$direccion = str_replace('js./../', '', $url_target) ;
+$direccion ="https://meganet.covagu.com/files/".$hoy.".".$file_type;
 if (!file_exists($url_insert)) {
     mkdir($url_insert, 0777, true);
 };

@@ -54,7 +54,7 @@ imageUpload.onchange = function () {
         //https://microtikcd.000webhostapp.com/files/20221218152550.jpeg
         //https://microtikcd.000webhostapp.com/files/transfer.jpeg
         //https://microtikcd.000webhostapp.com/files/pago.jpeg
-        OCRAPI("https://microtikcd.000webhostapp.com/files/20221222133158.jpeg").then(salida => {
+       /* OCRAPI("https://microtikcd.000webhostapp.com/files/20221222133158.jpeg").then(salida => {
             let respues = salida.responses[0].fullTextAnnotation.text.split("\n")
             let nuevo = respues.map((e, i) => {
                 if (e.includes("Comprobante")) {
@@ -74,8 +74,8 @@ imageUpload.onchange = function () {
             console.log(respues, nuevo)
             //console.log(salida.responses[0].fullTextAnnotation.text)
         }
-        ).catch(erro => console.log(erro))
-        /*  axios.post("js/guardar.php", fordata,
+        ).catch(erro => console.log(erro))*/
+     axios.post("js/guardar.php", fordata,
           ).then(respuesta => respuesta.json())
               .then(decodificado => {
                   if(!decodificado.status) {
@@ -87,13 +87,31 @@ imageUpload.onchange = function () {
                       console.log(decodificado);
                   }
                   if (decodificado.status){ 
-                      OCRAPI(decodificado.result).then(salida=>
-                          console.log("ocr-->",salida)
+                      OCRAPI(decodificado.result).then(salida=>{
+                        let respues = salida.responses[0].fullTextAnnotation.text.split("\n")
+                        let nuevo = respues.map((e, i) => {
+                            if (e.includes("Comprobante")) {
+                                 document.getElementById("control").value=""+getNumbersInString(e)
+                                
+                                return valores[0] = getNumbersInString(e)
+                            }
+                            if (e.includes("$")){
+                                
+                                if ( parseFloat( e.split("$")[1].replace("$",""))>1) document.getElementById("monto").value = "$" + e.split("$")[1]
+                                return valores[1]= getNumbersInString(e.replace("$"," "))    
+                            }
+                        }).filter(function (value) {
+                            return value != undefined;
+                        })
+            
+                        console.log(respues, nuevo)
+                        //console.log(salida.responses[0].fullTextAnnotation.text)
+                        }
                           ).catch(erro=>console.log(erro))
                   } 
                   console.log(decodificado);
               }).catch(error => console.log(error));
-  */
+  
     } else {
         console.log(input)
         //s  text = "“Please select as file”";
