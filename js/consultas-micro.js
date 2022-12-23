@@ -5,12 +5,11 @@ const consulta = async (identificado) => {
   //0918381419  
   //1204795080
   try {
-    const { data } = await axios.post("https://177.234.197.134/api/v1/GetClientsDetails",
-      {
-        "token": "TTZqNnlucVpuZmJUUXRzcDVSci9QQT09",
-        "cedula": "" + identificado
+    const { data } = await axios.post("js/consultacliente.php",
+      {        
+        "cedula":  identificado
       })
-    console.log(data)
+   // console.log(data)
     return data
   } catch (error) {
     console.log(error)
@@ -32,7 +31,11 @@ document.getElementById('btn_enviar_cont').addEventListener('click', function (e
   else{
     this.setAttribute("disabled", true)
   e.path[0].children[0].classList.toggle("d-none")
-  consulta(identificado).then(ouput => {
+  consulta(identificado).then(salida => {
+    let ouput= JSON.parse(salida)
+
+    console.log(ouput)
+
     if (ouput.estado == 'exito') {
       this.removeAttribute("disabled");
       //let infomacion = ouput.datos[0];
