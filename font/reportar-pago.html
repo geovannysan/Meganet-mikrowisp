@@ -1,0 +1,390 @@
+<html lang="es">
+
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+  </style>
+
+  <!--Analytics-->
+
+  <!--Fin Analytics-->
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, maximun-scalable=1.0, maximun-scalable=1.0">
+  <title>Meganet | Internet por Fibra Óptica</title>
+  <link rel="icon" href="img/logo/logo-meganet.png" type="image/x-icon" />
+
+  <!--CSS-->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/fontello.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://jsuites.net/v4/jsuites.js"></script>
+<link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+  <!-- Js WoW
+
+  <script src="js/wow.min.js"></script>
+  <script> new WOW().init();</script>
+
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+ 
+
+</head>
+
+<body style="font-family: 'Quicksand', sans-serif;" id="raiz">
+  <!--Inicio proyecto-->
+
+  <div class="container-fluid px-0 w-100 mx-auto bg-header2" id="home">
+    <div class="container-fluid py-4 bg-transparent">
+      <div class="container py-2 ">
+        <nav class="navbar navbar-expand-lg bg-transparent" style="font-size: 1.1rem;">
+          <div class="container-fluid ">
+            <a class="navbar-brand" href="#"><img style="height: 60px;" src="img/logo/logo-meganet-blanco.png"
+                alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class="nav-item me-4">
+                  <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item me-4">
+                  <a class="nav-link text-white" href="index.html#planes_meganet">Planes</a>
+                </li>
+                <li class="nav-item me-4">
+                  <a class="nav-link text-white" href="index.html#cobertura_meganet">Cobertura</a>
+                </li>
+                <li class="nav-item me-4">
+                  <a class="nav-link text-white" href="contratar-meganet.html">Contratar</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white btn border border-info px-3 rounded-pill fw-bold"
+                    href="http://portal.meganet.net.ec/cliente/login" target="_blank">Soy Cliente</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid py-5 mb-4">
+    <div class="container">
+      <p class="text-center" style="font-size: 4vh;">Reportar <b>Pago</b></p>
+    </div>
+    <div class="col-lg-7 mx-auto mt-4">
+      <div class="col-11 col-md-9 mx-auto">
+        <form class="needs-validation" novalidate="" action="contratarplan.php" method="post" accept-charset="utf-8">
+
+
+          <div class="row mt-2 text-center">
+            <div class="col-md-7 text-center mx-auto">
+              <h4 class="" style="font-size: 19px"><b>Nº Cédula:</b></h4>
+              <div class="input-group mb-3 ">
+                <input type="number" class="form-control shadow-sm" id="numeroid" placeholder="Cédula titular del servicio"
+                  aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                <button class="   btn btn-lg btn-primary" type="submit" value="Canelar" id="btn_enviar_cont"
+                  id="button-addon2">Consultar <div class=" d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></div></button>
+                 
+                 
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <!--Devuelve CLiente y estado-->
+            <div class="col-md-9">
+              <h4 class="" style="font-size: 19px"><b>Cliente:</b></h4>
+              <div class="col-12">
+                <p class="border border-2 py-2 px-2 rounded-2" id="nombre"> Cliente </p>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <h4 class="" style="font-size: 19px"><b>Estado:</b></h4>
+              <div class="estado col-12 bg-danger rounded-2 text-center fw-bold text-white">
+                <p class="border border-2 py-2 px-2 rounded-2"><span style="font-size: 18px" id="estado">DESCO</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <!--Verifica facturas y valor a pagar-->
+            <div class="col-lg-6">
+              <h4 class="" style="font-size: 19px"><b>Servicio:</b></h4>
+             <div class="col-12">
+                <p class="border border-2 py-3 px-2 rounded-2">
+                  Servicio de Internet 
+                  <br>
+                  Plan contratado: <span id="perfil"></span>
+                </p>
+
+                <p></p>
+              </div> 
+            </div>
+
+            <div class="col-lg-6 btn-group-vertical">
+              <div class="col-12 ">
+                <div class="row">
+                  <div class="col-7">
+                    <h4 style="font-size: 19px" class="py-3"><b>Fact. Pendientes:</b></h4>
+                  </div>
+                  <div class="col-5 text-center ">
+                    
+                      <div class="row d-flex justify-content-center align-items-center ">
+                        <div class="col-6 ">
+                          <p class="border border-2 rounded-2  h py-2" style="font-size: 19px" id="cantidad">
+                                0
+                            
+                          </p>
+                        </div>
+                        <div class="col-6 ">
+                          <button class="border-0 btn rounded-2 p-0"   disabled  id="ver">
+                            <i class="text-primary icon-eye" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size: 25px;" ></i>
+                        
+                          </button>
+  
+                        </div>
+  
+                      </div>
+                  
+                  
+                    
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-7">
+                    <h4 style="font-size: 19px" class="py-3"><b>Total a Pagar:</b></h4>
+                  </div>
+                  <div class="col-5 text-center">
+                    <p class="border border-2 rounded-2 py-2" style="font-size: 19px" id="valors">$00.00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+         <div id="metodopago" class="d-none">
+          <div class="row mt-2">
+            <!--Valida Comprobante-->
+            <div class="col-12">
+              <h4 style="font-size: 19px" class="">Foto del <b>comprobante:</b></h4>
+            </div>
+            <div class="input-group mb-3">
+              <input type="file" class="form-control" id="inputGroupFile02" required>
+              <button class="btn btn-secondary" type="button" id="inputGroupFileAddon04">Continuar</button>
+            </div>
+          </div>
+
+
+          <div class="col-12 my-3 mb-4 border-bottom border-2">
+            <h4 class="">Ingrese información del <b>Comprobante de Pago</b></h4>
+          </div>
+
+
+          <div class="row  ">
+            <!--Ingresa Transaccion y valor-->
+            <div class="col-lg-6 mt-2">
+              <div class="col-">
+                <h4 style="font-size: 19px" class="">Banco <b>Destino:</b></h4>
+              </div>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Banco</label>
+                <select class="form-select" id="inputGroupSelect01" required>
+                  <option value>Seleccione...</option>
+                  <option value="Pichincha">Pichincha</option>
+                  <option value="Guayaquil">Guayaquil</option>
+                  <option value="Pacifico">Pacifico</option>
+                  <option value="Produbanco">Produbanco</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mt-2">
+              <div class="col-12">
+                <h4 style="font-size: 19px" class="">Ingrese Nº de <span><b>Control:</b> <a href=""
+                      style="font-size: 14px; text-decoration:none"> Ver ejemplo</a></span></h4>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nº</span>
+                <input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" required>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mt-2">
+              <div class="col-12">
+                <h4 style="font-size: 19px" class="">Ingrese valor <span><b>Pagado:</b></span></h4>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">$</span>
+                <input type="number" class="form-control" placeholder="29.99" aria-label="Username"
+                  aria-describedby="basic-addon1" required>
+              </div>
+            </div>
+
+            <div class="col-lg-6 bg- mt-3 btn-group-vertical">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-7 text-center">
+                    <button class="btn btn-lg btn-success" type="submit" value="Canelar" id="btn_enviar_cont"
+                      id="button-addon2">Registrar Pago</button>
+                  </div>
+
+                  <div class="col-4 text-center">
+                    <button class="btn btn-lg btn-outline-danger" type="submit" value="Canelar" id="btn_enviar_cont"
+                      id="button-addon2">Cancelar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--Footer-->
+  <div class="container-fluidpt-3 mt-5 d-none" style="background: #0e385e" id="contacto_meganet">
+    <div class="container  py-4">
+      <div class="row mt-auto mt-5 justify-content-between">
+        <div class="col-md-12 col-lg-3">
+          <img class="img-fluidr" style="max-width: 120px" src="img/logo/logo-meganet-blanco.png" alt="">
+          <p class="text-light" style="font-size: 16px">Somos una empresa dedicada a facilitar la conexion a internet de
+            las familias ecuatorianas.</p>
+        </div>
+
+        <div class="col-md-6 col-lg-3 text-light ">
+          <ul class="list-unstyled" style="font-size: 14px">
+            <p class="text-light mb-2 " style="font-size: 1.2em; font-weight:400"><b>Normas y Regulaciones</b></p>
+            <li class="my-2" style="cursor: pointer" href=""><span class="icon-right-open"></span><a
+                href="https://www.arcotel.gob.ec/wp-content/uploads/2018/08/Parametros-de-Calidad.pdf" target="_blank"
+                class="text-white" style="text-decoration: none">Normas de calidad</a></li>
+            <li class="my-2" style="cursor: pointer"><span class="icon-right-open"></span><a
+                href="https://www.arcotel.gob.ec/" target="_blank" class="text-white"
+                style="text-decoration: none">Arcotel</a></li>
+            <li class="my-2" style="cursor: pointer"><span class="icon-right-open"></span><a
+                href="https://www.arcotel.gob.ec/wp-content/uploads/2017/03/067_Reglamento-abonados-servicios-telecomunicaciones-sva.pdf"
+                target="_blank" class="text-white" style="text-decoration: none">Reglamento de abonados</a></li>
+            <li class="my-2" style="cursor: pointer"><span class="icon-right-open"></span><a
+                href="https://www.telecomunicaciones.gob.ec/wp-content/uploads/downloads/2016/05/Ley-Org%C3%A1nica-de-Telecomunicaciones.pdf"
+                target="_blank" class="text-white" style="text-decoration: none">Ley de Telecomunicaciones</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <ul class="list-unstyled text-light " style="font-size: 14px">
+            <p class="text-light mb-2 " style="font-size: 1.2em; font-weight:400"><b>Zona Clientes</b></p>
+            <li class="my-2" style="cursor: pointer"><a href="http://portal.meganet.net.ec/cliente/login"
+                target="_blank" class="text-white" style="text-decoration: none"><span
+                  class="icon-right-open"></span>Portal</a></li>
+            <li class="my-2" style="cursor: pointer"><a
+                href="https://api.whatsapp.com/send?phone=593999753584&amp;text=Necesito%20ayuda%20con%20mi%20servicio%20"
+                class="text-white" style="text-decoration: none" target="_blank"><span
+                  class="icon-right-open"></span>Soporte Técnico</a></li>
+            <li class="my-2" style="cursor: pointer"><a href="https://www.speedtest.net/es" class="text-white"
+                style="text-decoration: none" target="_blank"><span class="icon-right-open"></span>Test de Velocidad</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3 text-light ">
+          <ul class="list-unstyled" style="font-size: 14px">
+            <p class="text-light mb-2 " style="font-size: 1.2em; font-weight:400"><b>Contacto</b></p>
+            <li class="my-2" style="cursor: pointer"><span class="icon-phone-1 me-1"></span>0999753584 - 0998066653</li>
+            <li class="my-2" style="cursor: pointer"><span class="icon-whatsapp me-1"></span>0999753584</li>
+            <li class="my-2" style="cursor: pointer"><span class="icon-mail-alt me-1"></span>ventas@meganet.net.ec</li>
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <div class="container-fluid d-none  py-4" style="background: #0f3353">
+    <div class="container text-center text-white">
+      <div class="col-12">Powered by <a href="https://www.covagu.com" style="text-decoration: none"
+          target="_blank"><span class="text-white"><b>Covagu</b></span></a></div>
+    </div>
+
+  </div>
+  <!--Fin Footer-->
+
+
+<!--Modal Facturas Pendientes-->
+<div class="modal modal-lg  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Valores <b>Pendientes</b></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row" id="fact-pendiente">
+          <div class="col-12">
+            <h1 class="fs-5"> <b>Factura</b> <span class="text-danger" id="num-fact">001-002-01583</span></h1>
+            <div class="row">
+              <div class="col-6">
+                <h1 class="fs-5">Detalle</h1>
+                <div class="col">
+                  <p></p>
+                </div>
+              </div>
+              <div class="col-6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div><!--Fin Modal Facturas Pendientes-->
+
+
+  <!--Fin proyecto-->
+  <!--Js
+  <script src="js/wow.min.js"></script>
+  -->
+  <script src="js/bootstrap.bundle.js"></script>
+
+  <script src="js/consultas-micro.js"></script>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
+
+</body>
+
+</html>

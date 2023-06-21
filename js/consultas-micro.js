@@ -17,6 +17,7 @@ const consulta = async (identificado) => {
   }
 }
 document.getElementById('btn_enviar_cont').addEventListener('click', function (e) {
+  console.log(e)
   e.preventDefault()
   let identificado = document.getElementById("numeroid").value
   let lista = document.querySelector("div.estado")
@@ -30,7 +31,7 @@ document.getElementById('btn_enviar_cont').addEventListener('click', function (e
   }
   else {
     this.setAttribute("disabled", true)
-    e.path[0].children[0].classList.toggle("d-none")
+    //e.path[0].children[0].classList.toggle("d-none")
     consulta(identificado).then(salida => {
       let ouput = JSON.parse(salida)
 
@@ -80,6 +81,7 @@ document.getElementById('btn_enviar_cont').addEventListener('click', function (e
         document.getElementById("metodopago").classList.add("d-none")
       }
     }).catch(err => {
+      console.log(e)
       this.removeAttribute("disabled");
       e.path[0].children[0].classList.toggle("d-none")
       console.log(err)
