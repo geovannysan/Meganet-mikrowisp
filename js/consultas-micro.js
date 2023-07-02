@@ -45,7 +45,9 @@ document.getElementById('btn_enviar_cont').addEventListener('click', function (e
     let ouput= salida
 
     console.log(ouput)
-
+    new bootstrap.Toast(document.querySelector('#basicToast')).show();
+  
+  
     if (ouput.estado == 'exito') {
       this.removeAttribute("disabled");
       //let infomacion = ouput.datos[0];

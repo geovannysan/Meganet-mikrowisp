@@ -34,10 +34,25 @@
  
 
 </head>
-
-<body style="font-family: 'Quicksand', sans-serif;" id="raiz">
+<style>
+  .spinerc{
+    position: absolute;
+    width: 100%;
+    height: 100% !important;
+    align-items: center;
+padding: 0;
+    z-index: 3;
+    background-color: black;
+    opacity: 0.7;
+  }
+</style>
+<body style=" position: relative; font-family: 'Quicksand', sans-serif;" id="raiz">
   <!--Inicio proyecto-->
-
+  <div class="d-none spinerc  d-flex justify-content-center align-items-center">
+    <div class="spinner-grow text-primary " role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
   <div class="container-fluid px-0 w-100 mx-auto bg-header2" id="home">
     <div class="container-fluid py-4 bg-transparent">
       <div class="container py-2 ">
@@ -75,7 +90,19 @@
       </div>
     </div>
   </div>
-
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="basicToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true">
+        <div class="toast-header">
+          <img src="..." class="rounded me-2" alt="...">
+          <strong class="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+  </div>
   <div class="container-fluid py-5 mb-4">
     <div class="container">
       <p class="text-center" style="font-size: 4vh;">Reportar <b>Pago</b></p>
@@ -254,7 +281,7 @@
   </div>
 
 
-
+  
   <!--Footer-->
   <div class="container-fluidpt-3 mt-5 d-none" style="background: #0e385e" id="contacto_meganet">
     <div class="container  py-4">
