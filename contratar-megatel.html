@@ -1,0 +1,289 @@
+<html lang="es">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+    </style>
+
+<!--Analytics-->
+
+<!--Fin Analytics-->
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximun-scalable=1.0, maximun-scalable=1.0">
+<title>Megatel | Internet por Fibra Óptica</title>
+<link rel="icon" href="img/logo/logo-megatel.png" type="image/x-icon" />
+
+<!--CSS-->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/fontello.css">
+<!-- Js WoW-->
+<script src="js/wow.min.js"></script>
+<script> new WOW().init();</script>
+</head>
+
+<body style="font-family: 'Quicksand', sans-serif;"><!--Inicio proyecto-->
+
+  <div class="container-fluid px-0 w-100 mx-auto bg-header2"  id="home">
+    <div class="container-fluid py-4 bg-transparent" >
+      <div class="container py-2 ">
+        <nav class="navbar navbar-expand-lg bg-transparent" style="font-size: 1.1rem;">
+          <div class="container-fluid ">
+            <a class="navbar-brand" href="#"><img style="height: 60px;" src="img/logo/logo-megatel-blanco.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class="nav-item me-4">
+                  <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item me-4">
+                  <a class="nav-link text-white" href="index.html#planes_megatel">Planes</a>
+                </li>
+                <li class="nav-item me-4">
+                  <a class="nav-link text-white" href="index.html#cobertura_megatel">Cobertura</a>
+                </li>
+                <li class="nav-item me-4">
+                  <a class="nav-link text-white" href="contratar-megatel.html">Contratar</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white btn border border-info px-3 rounded-pill fw-bold" href="http://portal.meganet.net.ec/cliente/login" target="_blank">Soy Cliente</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+<div class="container-fluid py-5 my-4">
+  <div class="container">
+    <p class="text-center text-uppercase" style="font-size: 4vh;">Solcitud de <b>Instalación</b></p>
+  </div>
+  <div class="col-lg-7 mx-auto mt-4">
+    <div class="col-11 col-md-9 mx-auto">
+      <form class="needs-validation" novalidate="" action="contratarplan.php" method="post" accept-charset="utf-8">
+
+        <div class="row">
+              <div class="row col-12 mt-3 mb-3 ">
+                <div class="col-6 d-md-block d-none text-center"><img src="img/logo/logo-megatel.png" style="height: 90px" class="img-fluid" alt=""></div>
+                <div class="col-md-6 mb-3 content-select my-2">
+                  <label for="validationCustom08" class="font-weight-bold text-uppercase" style="font-size: 1.1em;">Seleccione <b>Plan a Contratar</b> </label> <br>
+                  <select name="planes"  class="form-control col-12 rounded-2 py-2 px-2" id="validationCustom08"  required> 
+                      <option value="Plan-Student" >
+                        Plan Student |
+                        50Mbps  |
+                        $17.99+iva
+                      </option>
+                      <option value="Plan Standard">
+                        Plan Standard |
+                        80Mbps |
+                        $20.99+iva
+                      </option>
+                      <option value="Plan Gaming">
+                        Plan Gaming  |
+                        100Mbps  |
+                        $25.99+iva
+                      </option>
+                      <option value="Plan Mega">
+                        Plan Mega  |
+                        150Mbps  |
+                        $30.00+iva
+                      </option>
+                      <option value="Plan Fast">
+                        Plan Fast  |
+                        200Mbps  |
+                        $40.99+iva
+                      </option>
+                      
+                      </select> 
+                </div>
+                <div class="valid-feedback">		  </div>
+              </div>
+  
+              <div class="col-md-8 mb-3">
+                <label for="validationCustom01">APELLIDOS Y NOMBRES* </label>
+                <input type="text" name="nombrecont" class="form-control text-uppercase" id="validationCustom01" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+                
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom01">CÉDULA O RUC* </label>
+                <input type="number" name="cedularuc" class="form-control" id="ruc" maxlength="13" onblur="validarDocumento()" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+            </div>
+            
+            <div class="row mt-2">
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom01">TELÉFONO 1*</label>
+                <input type="number" name="phone1" class="form-control" id="validationCustom02" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+                
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom01">TELÉFONO 2*</label>
+                <input type="number" name="phone2" class="form-control" maxlength="10" id="validationCustom03" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+            </div>          
+                      
+            <div class="row mt-2">
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom01">E-MAIL*</label>
+                <input type="email" name="emailcont" class="form-control" id="validationCustom03" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+            </div>
+            
+            
+            <div class="row mt-2">
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom01">DIRECCIÓN DEL DOMICILIO SECTOR, MZ, SL*</label> <br>
+                <span class=""><b>Ejemplo:</b> Guayaquil, Nueva Prosperina Mz 610 sl 25</span>
+                <input type="text" name="direccioncont" class="form-control" id="validationCustom06" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+            </div>          
+            
+            <div class="row mt-2">
+            <div class="col-md-12 mb-3">
+              <label for="validationCustom03">INDICANOS BREVEMENTE COMO LLEGAR A TU DOMICILIO *</label>
+              <textarea type="text" name="indicaciones" class="form-control" rows="6" style="max-height: 110px; min-height: 110px" id="validationCustom05" placeholder="" required=""></textarea>
+              <div class="invalid-feedback">	  </div>
+            </div>
+            </div>
+            
+  
+            <div class="row mt-2">
+              <div class="col-md-8 mb-3">
+                <label for="validationCustom01">NOMBRE REFERENCIA PERSONAL *</label>
+                <input type="text" name="nombreper" class="form-control" id="validationCustom06" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+                
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom01">TELÉFONO *</label>
+                <input type="number" name="phoneper" class="form-control" id="validationCustom07" maxlength="10" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+            </div>          
+  
+  
+            <div class="row mt-2">
+              <div class="col-md-8 mb-3">
+                <label for="validationCustom01">NOMBRE REFERENCIA FAMILIAR *</label>
+                <input type="text" name="nombrefam" class="form-control" id="validationCustom08" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+                
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom01">TELÉFONO *</label>
+                <input type="number" name="phonefam" class="form-control" id="validationCustom09" maxlength="10" placeholder="" required="">
+                <div class="valid-feedback">		  </div>
+              </div>
+            </div> 
+            
+    
+            <div class="form-group mt-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
+              <label class="form-check-label" for="invalidCheck">
+              He leído y acepto los <a a="" class="text-decoration-none text-primary" style="cursor:pointer" data-toggle="modal" data-target="#terminosCondiciones">Términos y Condiciones</a>
+              </label>
+              <div class="invalid-feedback">	  </div>
+            </div>
+            </div>
+            
+            
+            <input class=" btn-primary btn mt-3 px-4 py-2" type="submit" value="Enviar" id="btn_enviar_cont">
+          </form>
+    </div>
+  </div>
+</div>
+
+
+<!--Footer-->
+<div class="container-fluid pt-3 mt-5" style="background: #0e385e" id="contacto_megatel">
+	<div class="container  py-4">
+		<div class="row mt-auto mt-5 justify-content-between">
+			<div class="col-md-12 col-lg-3">
+				<img class="img-fluidr" style="max-width: 120px" src="img/logo/logo-megatel-blanco.png" alt="">
+				<p class="text-light" style="font-size: 16px">Somos una empresa dedicada a facilitar la conexion a internet de las familias ecuatorianas.</p>
+			</div>
+			
+			<div class="col-md-6 col-lg-3 text-light ">
+				<ul class="list-unstyled" style="font-size: 14px">
+					<p class="text-light mb-2 " style="font-size: 1.2em; font-weight:400"><b>Normas y Regulaciones</b></p>
+					<li class="my-2" style="cursor: pointer" href=""><span class="icon-right-open"></span><a href="https://www.arcotel.gob.ec/wp-content/uploads/2018/08/Parametros-de-Calidad.pdf" target="_blank" class="text-white" style="text-decoration: none">Normas de calidad</a></li>
+					<li class="my-2" style="cursor: pointer"><span class="icon-right-open"></span><a href="https://www.arcotel.gob.ec/" target="_blank" class="text-white" style="text-decoration: none">Arcotel</a></li>
+					<li class="my-2" style="cursor: pointer"><span class="icon-right-open"></span><a href="https://www.arcotel.gob.ec/wp-content/uploads/2017/03/067_Reglamento-abonados-servicios-telecomunicaciones-sva.pdf" target="_blank" class="text-white" style="text-decoration: none">Reglamento de abonados</a></li>
+					<li class="my-2" style="cursor: pointer"><span class="icon-right-open"></span><a href="https://www.telecomunicaciones.gob.ec/wp-content/uploads/downloads/2016/05/Ley-Org%C3%A1nica-de-Telecomunicaciones.pdf" target="_blank" class="text-white" style="text-decoration: none">Ley de Telecomunicaciones</a></li>
+				</ul>
+			</div>
+			
+			<div class="col-md-6 col-lg-3">
+				<ul class="list-unstyled text-light " style="font-size: 14px">
+					<p class="text-light mb-2 " style="font-size: 1.2em; font-weight:400"><b>Zona Clientes</b></p>
+					<li class="my-2" style="cursor: pointer"><a href="http://portal.meganet.net.ec/cliente/login" target="_blank" class="text-white" style="text-decoration: none"><span class="icon-right-open"></span>Portal</a></li>
+					<li class="my-2" style="cursor: pointer"><a href="https://api.whatsapp.com/send?phone=593999753584&amp;text=Necesito%20ayuda%20con%20mi%20servicio%20" class="text-white" style="text-decoration: none" target="_blank"><span class="icon-right-open"></span>Soporte Técnico</a></li>
+					<li class="my-2" style="cursor: pointer"><a href="https://www.speedtest.net/es" class="text-white" style="text-decoration: none" target="_blank"><span class="icon-right-open"></span>Test de Velocidad</a></li>
+				</ul>
+			</div>
+
+      <div class="col-md-6 col-lg-3 text-light ">
+				<ul class="list-unstyled" style="font-size: 14px">
+					<p class="text-light mb-2 " style="font-size: 1.2em; font-weight:400"><b>Contacto</b></p>
+					<li class="my-2" style="cursor: pointer"><span class="icon-phone-1 me-1"></span>0999753584 - 0998066653</li>
+					<li class="my-2" style="cursor: pointer"><span class="icon-whatsapp me-1"></span>0999753584</li>
+					<li class="my-2" style="cursor: pointer"><span class="icon-mail-alt me-1"></span>ventas@megatel.ec</li>
+				</ul>
+			</div>
+			
+
+		</div>
+	</div>
+		
+</div>
+<div class="container-fluid py-4" style="background: #0f3353">
+	<div class="container text-center text-white">
+    <div class="col-12">Powered by <a href="https://www.covagu.com" style="text-decoration: none" target="_blank"><span class="text-white"><b>Covagu</b></span></a></div>
+	</div>	
+
+</div>
+<!--Fin Footer-->
+
+
+<!--Fin proyecto-->
+<!--Js-->
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/wow.min.js"></script>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+
+</body>
+</html>

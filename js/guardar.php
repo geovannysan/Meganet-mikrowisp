@@ -11,7 +11,7 @@ $url_insert = dirname(__FILE__) . "./../files";
 $url_target = str_replace('\\', '/', $url_insert) . '/' .$hoy.".".$file_type;
 $direccion ="https://meganet.covagu.com/files/".$hoy.".".$file_type;
 if (!file_exists($url_insert)) {
-    mkdir($url_insert, 0777, true);
+   // mkdir($url_insert, 0777, true);
 };
 $file_size = $_FILES["fileTest"]["size"];
 if ( $file_size > 1000000) {
